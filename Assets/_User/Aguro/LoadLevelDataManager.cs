@@ -106,33 +106,33 @@ public class LoadLevelDataManager : MonoBehaviour
     private void ApplyLevelDatas(string[,] arrays, int height, int width)
     {
         LevelData levelData = new LevelData(width, height);
-        for (int x = 0; x < height; x++)
+        for (int y = 0; y < height; y++)
         {
-            for (int y = 0; y < width; y++)
+            for (int x = 0; x < width; x++)
             {
                 //行番号-列番号:データ値 と表示される
-                Debug.Log(x + "-" + y + ":" + arrays[x, y]);
+                Debug.Log(y + "-" + x + ":" + arrays[y, x]);
 
                 bool blockIsFixed = false;
-                if (arrays[x, y].Substring(0, 1)=="0")
+                if (arrays[y, x].Substring(0, 1)=="0")
                 {
                     blockIsFixed = false;
                 }
-                else if (arrays[x, y].Substring(0, 1)=="1")
+                else if (arrays[y, x].Substring(0, 1)=="1")
                 {
                     blockIsFixed = true;
                 }
                 bool blockIsFreeze = false;
-                if (arrays[x, y].Substring(0, 1)=="0")
+                if (arrays[y, x].Substring(0, 1)=="0")
                 {
                     blockIsFreeze = false;
                 }
-                else if (arrays[x, y].Substring(0, 1)=="1")
+                else if (arrays[y, x].Substring(0, 1)=="1")
                 {
                     blockIsFreeze = true;
                 }
                 //bool blockIsFreeze = System.Convert.ToBoolean(arrays[x, y].Substring(1, 1));//←使い方が分かりませんでした…。
-                char blockValue = (char)int.Parse(arrays[x, y].Substring(2,1));
+                char blockValue = (char)int.Parse(arrays[y, x].Substring(2,1));
                 Block block = new Block(blockValue,blockIsFixed,blockIsFreeze);
                 levelData.SetAt(x,y,block);
             }

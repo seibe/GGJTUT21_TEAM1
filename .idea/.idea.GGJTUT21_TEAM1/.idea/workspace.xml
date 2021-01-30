@@ -44,8 +44,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09e8b111-73e6-44a0-a79a-31360462bf03" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_User/Aguro/User.Aguro.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_User/Aguro/User.Aguro.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJTUT21_TEAM1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJTUT21_TEAM1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_User/Aguro/LoadLevelDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_User/Aguro/LoadLevelDataManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +115,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611976432149</updated>
       <workItem from="1611976441782" duration="1813000" />
-      <workItem from="1611984375675" duration="10143000" />
+      <workItem from="1611984375675" duration="10907000" />
     </task>
     <servers />
   </component>
@@ -214,17 +214,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_User/Aguro/LoadLevelDataManager.cs</url>
-          <line>135</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/_User/Aguro/LoadLevelDataManager.cs" initialLine="135">
+          <url>file://$PROJECT_DIR$/Assets/_Main/Scripts/Runtime/LevelData.cs</url>
+          <line>52</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/_Main/Scripts/Runtime/LevelData.cs" initialLine="52">
             <startOffsets>
-              <option value="3793" />
+              <option value="1395" />
             </startOffsets>
             <endOffsets>
-              <option value="3856" />
+              <option value="1420" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
