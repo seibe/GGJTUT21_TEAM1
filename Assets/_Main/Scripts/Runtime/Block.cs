@@ -4,6 +4,7 @@ namespace Game
     public readonly struct Block : System.IEquatable<Block>
     {
         public static readonly Block Null = default;
+        public static readonly Block Wall = new Block('w', true);
         public static readonly Block Plus = new Block('+', false);
         public static readonly Block Minus = new Block('-', false);
         public static readonly Block Mul = new Block('*', false);
