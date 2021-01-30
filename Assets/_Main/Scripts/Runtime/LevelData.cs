@@ -35,7 +35,7 @@ namespace Game
             }
             if (y < 0 || y >= Height)
             {
-                throw new System.ArgumentOutOfRangeException(nameof(x));
+                throw new System.ArgumentOutOfRangeException(nameof(y));
             }
             return m_RawData[x + Width * y];
         }
@@ -48,7 +48,7 @@ namespace Game
             }
             if (y < 0 || y >= Height)
             {
-                throw new System.ArgumentOutOfRangeException(nameof(x));
+                throw new System.ArgumentOutOfRangeException(nameof(y));
             }
             m_RawData[x + Width * y] = value;
         }
