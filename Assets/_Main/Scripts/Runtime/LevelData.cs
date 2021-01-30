@@ -5,12 +5,12 @@ namespace Game
 {
     public class LevelData
     {
-        private readonly char[] m_RawData;
+        private readonly Block[] m_RawData;
 
         public readonly int Height;
         public readonly int Width;
 
-        public LevelData(char[] raw, in int width, in int height)
+        public LevelData(Block[] raw, in int width, in int height)
         {
             Assert.IsTrue(width > 0);
             Assert.IsTrue(height > 0);
@@ -24,10 +24,10 @@ namespace Game
             Assert.IsTrue(width > 0);
             Assert.IsTrue(height > 0);
 
-            m_RawData = new char[width * height];
+            m_RawData = new Block[width * height];
         }
 
-        public char GetAt(in int x, in int y)
+        public Block GetAt(in int x, in int y)
         {
             if (x < 0 || x >= Width)
             {
@@ -40,7 +40,7 @@ namespace Game
             return m_RawData[x + Width * y];
         }
 
-        public void SetAt(in int x, in int y, in char value)
+        public void SetAt(in int x, in int y, in Block value)
         {
             if (x < 0 || x >= Width)
             {
