@@ -3,7 +3,9 @@
     "rootNamespace": "Game.Editor.Tests",
     "references": [
         "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner"
+        "UnityEditor.TestRunner",
+        "Game.Runtime",
+        "Game.Editor"
     ],
     "includePlatforms": [
         "Editor"
