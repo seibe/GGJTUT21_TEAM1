@@ -17,6 +17,8 @@ namespace Game
             Assert.AreEqual(raw.Length, width * height);
 
             m_RawData = raw;
+            Width = width;
+            Height = height;
         }
 
         public LevelData(in int width, in int height)
@@ -25,6 +27,8 @@ namespace Game
             Assert.IsTrue(height > 0);
 
             m_RawData = new Block[width * height];
+            Width = width;
+            Height = height;
         }
 
         public Block GetAt(in int x, in int y)
