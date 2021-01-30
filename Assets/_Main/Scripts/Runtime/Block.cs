@@ -51,15 +51,15 @@ namespace Game
         public static bool operator ==(Block left, Block right)
             => left.Equals(right);
 
-        public bool Equals(Block other)
+        public readonly bool Equals(Block other)
                             => Value == other.Value
             && IsFixed == other.IsFixed
             && IsFreeze == other.IsFreeze;
 
-        public override bool Equals(object obj)
+        public readonly override bool Equals(object obj)
             => (obj is Block other) && Equals(other);
 
-        public override int GetHashCode()
+        public readonly override int GetHashCode()
         {
             int hashCode = -1590736083;
             hashCode = hashCode * -1521134295 + Value.GetHashCode();
