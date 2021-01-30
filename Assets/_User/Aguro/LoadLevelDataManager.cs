@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+#if UNITY_EDITOR
+using Game;
+using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using System;
-using System.Text;
-using Game;
 
-namespace Game
+namespace User.Agruo
 {
     public class LoadLevelDataManager : MonoBehaviour
     {
-        Encoding encoding;
-
 // CSVから切り分けられた文字列型２次元配列データ
         private string[,] sdataArrays;
 
@@ -199,3 +195,4 @@ namespace Game
         }
     }
 }
+#endif //UNITY_EDITOR
