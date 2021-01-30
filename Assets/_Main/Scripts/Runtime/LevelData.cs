@@ -58,8 +58,7 @@ namespace Game
                     if (!block.IsExp) break;
                     exp.Unshift(block.Value);
                 }
-                if (exp.Count == 0) return false;
-                left = exp.Calculate();
+                if (exp.Count == 0 || !exp.TryCalculate(out left)) return false;
             }
 
             // 右辺を収集、計算
@@ -72,8 +71,7 @@ namespace Game
                     if (!block.IsExp) break;
                     exp.Push(block.Value);
                 }
-                if (exp.Count == 0) return false;
-                right = exp.Calculate();
+                if (exp.Count == 0 || !exp.TryCalculate(out right)) return false;
             }
 
             return left == right;

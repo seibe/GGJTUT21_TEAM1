@@ -33,6 +33,20 @@ namespace Game
             return ret;
         }
 
+        public bool TryCalculate(out int result)
+        {
+            try
+            {
+                result = Calculate();
+                return true;
+            }
+            catch (System.ArithmeticException)
+            {
+                result = default;
+                return false;
+            }
+        }
+
         public void Push(in char c)
         {
             m_Source.Add(c);
