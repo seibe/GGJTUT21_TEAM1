@@ -68,5 +68,8 @@ namespace Game
             hashCode = hashCode * -1521134295 + IsFreeze.GetHashCode();
             return hashCode;
         }
+
+        public readonly bool IsExp
+            => !Equals(Null) && !Equals(Wall);
     }
 }
