@@ -3,7 +3,9 @@ namespace Game
 {
     public readonly struct Block : System.IEquatable<Block>
     {
+        [System.Obsolete("Use `Empty` instead.")]
         public static readonly Block Null = default;
+        public static readonly Block Empty = default;
         public static readonly Block Wall = new Block('w', true);
         public static readonly Block Plus = new Block('+', false);
         public static readonly Block Minus = new Block('-', false);
@@ -70,6 +72,6 @@ namespace Game
         }
 
         public readonly bool IsExp
-            => !Equals(Null) && !Equals(Wall);
+            => !Equals(Empty) && !Equals(Wall);
     }
 }

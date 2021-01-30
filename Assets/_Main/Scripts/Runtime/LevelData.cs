@@ -170,13 +170,13 @@ namespace Game
             if (y2 < 0 || y2 >= Height) return false;
 
             var to = GetAt(x2, y2);
-            if (to != Block.Null) return false;
+            if (to != Block.Empty) return false;
 
             var from = GetAt(x, y);
-            if (from == Block.Null || from.IsFixed) return false;
+            if (from == Block.Empty || from.IsFixed) return false;
 
             SetAt(x2, y2, from);
-            SetAt(x, y, Block.Null);
+            SetAt(x, y, Block.Empty);
             return true;
         }
     }
