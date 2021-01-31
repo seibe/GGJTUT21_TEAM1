@@ -126,6 +126,16 @@ namespace Game
             m_RawData[x + Width * y] = value;
         }
 
+        public void SetRow(in int y, params Block[] row)
+        {
+            Assert.AreEqual(Width, row.Length);
+
+            for (var x = 0; x < row.Length; x++)
+            {
+                SetAt(x, y, row[x]);
+            }
+        }
+
         /// <summary>
         /// 下に移動する
         /// </summary>
