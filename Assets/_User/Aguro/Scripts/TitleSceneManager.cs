@@ -16,7 +16,7 @@ namespace User.Aguro
         // Start is called before the first frame update
         void Start()
         {
-            if (clearedStageNumber>0)
+            if (clearedStageNumber > 0)
             {
                 newGameText.text = "Continue";
             }
