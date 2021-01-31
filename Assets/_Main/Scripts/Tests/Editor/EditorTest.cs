@@ -23,11 +23,7 @@ namespace Game.Editor.Tests
         [Test, Category("Level")]
         public void Level001()
         {
-            var data = new LevelData(3, 3);
-            data.SetRow(2, Block.Wall, Block.Wall, Block.Wall);
-            data.SetRow(1, Block.Empty, Block.FixedEqual, Block.Fixed1);
-            data.SetRow(0, Block.Num1, Block.Wall, Block.Wall);
-
+            Assert.IsTrue(LevelData.TryGetLevel(0, out var data));
             Assert.IsTrue(data.IsValid());
             Assert.IsFalse(data.IsSuccess());
             Assert.IsFalse(data.TryMoveDown(0, 2));
@@ -38,11 +34,7 @@ namespace Game.Editor.Tests
         [Test, Category("Level")]
         public void Level002()
         {
-            var data = new LevelData(5, 3);
-            data.SetRow(2, Block.Wall, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
-            data.SetRow(1, Block.Fixed2, Block.Empty, Block.FixedEqual, Block.Fixed2, Block.Fixed3);
-            data.SetRow(0, Block.Wall, Block.Num3, Block.Wall, Block.Wall, Block.Wall);
-
+            Assert.IsTrue(LevelData.TryGetLevel(1, out var data));
             Assert.IsTrue(data.IsValid());
             Assert.IsFalse(data.IsSuccess());
             Assert.IsFalse(data.TryMoveRight(0, 1));
