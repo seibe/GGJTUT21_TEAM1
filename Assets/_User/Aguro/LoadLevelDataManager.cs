@@ -42,7 +42,7 @@ namespace User.Agruo
 
 // CSVデータを文字列型２次元配列に変換する
 // ファイルパス,変換される配列の値(参照渡し)
-        private void ReadCSVData(string path, ref string[,] sdata)
+        private void readCSVData(string path, ref string[,] sdata)
         {
             // ストリームリーダーsrに読み込む
             StreamReader sr = new StreamReader(path);
@@ -96,7 +96,7 @@ namespace User.Agruo
         }
 
 // ２次元配列の型を文字列型から整数値型へ変換する
-        private void Convert2DArrayType(ref string[,] sarrays, ref int[,] iarrays, int h, int w)
+        private void convert2DArrayType(ref string[,] sarrays, ref int[,] iarrays, int h, int w)
         {
             iarrays = new int[h, w];
             for (int i = 0; i < h; i++)
@@ -170,7 +170,7 @@ namespace User.Agruo
             }
 
             //データを読み込む(引数：データパス)
-            ReadCSVData(path, ref this.sdataArrays);
+            readCSVData(path, ref this.sdataArrays);
             ApplyLevelData(this.sdataArrays, this.height, this.width);
         }
 

@@ -3,10 +3,7 @@ namespace Game
 {
     public readonly struct Block : System.IEquatable<Block>
     {
-        [System.Obsolete("Use `Empty` instead.")]
         public static readonly Block Null = default;
-        public static readonly Block Empty = default;
-        public static readonly Block Wall = new Block('w', true);
         public static readonly Block Plus = new Block('+', false);
         public static readonly Block Minus = new Block('-', false);
         public static readonly Block Mul = new Block('*', false);
@@ -54,15 +51,15 @@ namespace Game
         public static bool operator ==(Block left, Block right)
             => left.Equals(right);
 
-        public readonly bool Equals(Block other)
+        public bool Equals(Block other)
                             => Value == other.Value
             && IsFixed == other.IsFixed
             && IsFreeze == other.IsFreeze;
 
-        public readonly override bool Equals(object obj)
+        public override bool Equals(object obj)
             => (obj is Block other) && Equals(other);
 
-        public readonly override int GetHashCode()
+        public override int GetHashCode()
         {
             int hashCode = -1590736083;
             hashCode = hashCode * -1521134295 + Value.GetHashCode();
@@ -70,8 +67,5 @@ namespace Game
             hashCode = hashCode * -1521134295 + IsFreeze.GetHashCode();
             return hashCode;
         }
-
-        public readonly bool IsExp
-            => !Equals(Empty) && !Equals(Wall);
     }
 }
