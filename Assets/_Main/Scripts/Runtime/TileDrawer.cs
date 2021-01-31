@@ -18,6 +18,11 @@ namespace Game
             Resolver.Register(this);
         }
 
+        private void OnDestroy()
+        {
+            Resolver.Unregister<TileDrawer>();
+        }
+
         public void UpdateTile(LevelData levelData)
         {
             var offsetX = (9 - levelData.Width) / 2;
