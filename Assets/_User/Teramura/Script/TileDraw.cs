@@ -23,6 +23,29 @@ namespace User.Teramura
         void Start()
         {
             tileMap = GetComponent<Tilemap>();
+
+            levelData = new LevelData(7, 3);
+            levelData.SetAt(0, 0, Block.Num3);
+            levelData.SetAt(1, 0, Block.Empty);
+            levelData.SetAt(2, 0, Block.Num5);
+            levelData.SetAt(3, 0, Block.Wall);
+            levelData.SetAt(4, 0, Block.Wall);
+            levelData.SetAt(5, 0, Block.Wall);
+            levelData.SetAt(6, 0, Block.Wall);
+            levelData.SetAt(0, 1, Block.Empty);
+            levelData.SetAt(1, 1, Block.Empty);
+            levelData.SetAt(2, 1, Block.Empty);
+            levelData.SetAt(3, 1, Block.Fixed8);
+            levelData.SetAt(4, 1, Block.FixedEqual);
+            levelData.SetAt(5, 1, Block.Fixed4);
+            levelData.SetAt(6, 1, Block.Fixed5);
+            levelData.SetAt(0, 2, Block.Num4);
+            levelData.SetAt(1, 2, Block.Plus);
+            levelData.SetAt(2, 2, Block.Num7);
+            levelData.SetAt(3, 2, Block.Wall);
+            levelData.SetAt(4, 2, Block.Wall);
+            levelData.SetAt(5, 2, Block.Wall);
+            levelData.SetAt(6, 2, Block.Wall);
         }
 
         // Update is called once per frame
