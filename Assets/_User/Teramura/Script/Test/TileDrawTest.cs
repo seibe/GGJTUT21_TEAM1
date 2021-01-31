@@ -10,20 +10,20 @@ namespace User.Teramura
         [SerializeField] Tile tile1;
         [SerializeField] Tile tile2;
         [SerializeField] Tile[] numTiles;
-        
+
 
         // Start is called before the first frame update
         void Start()
         {
             int x = 3;
             int y = 3;
-            int[] position = { 0, 1, 2, 1, 1, 0, 1, 2, 1};
-            
-            
+            int[] position = { 0, 1, 2, 1, 1, 0, 1, 2, 1 };
+
+
             var tileMap = GetComponent<Tilemap>();
-            for(int i = 0;i < y;i++)
+            for (int i = 0; i < y; i++)
             {
-                for(int k = 0;k < x;k++)
+                for (int k = 0; k < x; k++)
                 {
                     if (position[k + y * i] == 1)
                     {
@@ -40,7 +40,7 @@ namespace User.Teramura
         // Update is called once per frame
         void Update()
         {
-        
+
         }
     }
 }
