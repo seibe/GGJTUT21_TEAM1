@@ -206,6 +206,15 @@ MonoBehaviour:
   plusTiles:
   - {fileID: 11400000, guid: af0eec9194758b749aeac6e811f2706a, type: 2}
   - {fileID: 11400000, guid: 76af29e7e3a74904c92e4a41d554eb66, type: 2}
+  minusTiles:
+  - {fileID: 11400000, guid: c8cc06f6a6417b14889316789a3e18c3, type: 2}
+  - {fileID: 11400000, guid: 8dd097090096c854380465a00be3494a, type: 2}
+  mulTiles:
+  - {fileID: 11400000, guid: dc5666347b2ebd44a936433f79e51391, type: 2}
+  - {fileID: 11400000, guid: f225d6e7b004dfa46852ea0a27da3dac, type: 2}
+  divTiles:
+  - {fileID: 11400000, guid: 5299c449af52d2c4a9bed298459000a5, type: 2}
+  - {fileID: 11400000, guid: a458bef3183d27d47b9160ed728e3d13, type: 2}
   equalTile: {fileID: 11400000, guid: 86c50124c2336164a8839334e03cc011, type: 2}
   emptyTile: {fileID: 11400000, guid: fec03ceef341dec4cb27b8ba8bea9375, type: 2}
   wallTile: {fileID: 11400000, guid: e4079e3b6a3ed1c4c99faab274624000, type: 2}
