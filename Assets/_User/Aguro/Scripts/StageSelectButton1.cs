@@ -14,8 +14,8 @@ namespace User.Aguro
         // Start is called before the first frame update
         void Start()
         {
-            button = GetComponent <Button>();
-            button.onClick.AddListener (OnClickButton);
+            button = GetComponent<Button>();
+            button.onClick.AddListener(OnClickButton);
         }
 
         public void OnClickButton()
