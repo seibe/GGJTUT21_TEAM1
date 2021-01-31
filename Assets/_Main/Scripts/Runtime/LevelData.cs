@@ -38,10 +38,12 @@ namespace Game
             {
                 throw new System.ArgumentOutOfRangeException(nameof(x));
             }
+
             if (y < 0 || y >= Height)
             {
                 throw new System.ArgumentOutOfRangeException(nameof(y));
             }
+
             return m_RawData[x + Width * y];
         }
 
@@ -59,6 +61,7 @@ namespace Game
                     if (!block.IsExp) break;
                     exp.Unshift(block.Value);
                 }
+
                 if (exp.Count == 0 || !exp.TryCalculate(out left)) return false;
             }
 
@@ -72,6 +75,7 @@ namespace Game
                     if (!block.IsExp) break;
                     exp.Push(block.Value);
                 }
+
                 if (exp.Count == 0 || !exp.TryCalculate(out right)) return false;
             }
 
@@ -86,6 +90,7 @@ namespace Game
                     y = index / Width;
                     return true;
                 }
+
                 x = y = default;
                 return false;
             }
@@ -98,6 +103,7 @@ namespace Game
             {
                 if (block == Block.FixedEqual) count++;
             }
+
             return count == 1;
         }
 
@@ -107,10 +113,12 @@ namespace Game
             {
                 throw new System.ArgumentOutOfRangeException(nameof(x));
             }
+
             if (y < 0 || y >= Height)
             {
                 throw new System.ArgumentOutOfRangeException(nameof(y));
             }
+
             return ref m_RawData[x + Width * y];
         }
 
@@ -120,10 +128,12 @@ namespace Game
             {
                 throw new System.ArgumentOutOfRangeException(nameof(x));
             }
+
             if (y < 0 || y >= Height)
             {
                 throw new System.ArgumentOutOfRangeException(nameof(y));
             }
+
             m_RawData[x + Width * y] = value;
         }
 
@@ -207,7 +217,134 @@ namespace Game
                     data.SetRow(0, Block.Wall, Block.Num3, Block.Wall, Block.Wall, Block.Wall);
                     return true;
 
-                // ここに書き加えていく！
+                case 3:
+                    data = new LevelData(5, 4);
+                    data.SetRow(3, Block.Num3, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(2, Block.Empty, Block.Empty, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.Empty, Block.FixedEqual, Block.Fixed1, Block.Fixed3);
+                    data.SetRow(0, Block.Wall, Block.Num1, Block.Wall, Block.Wall, Block.Wall);
+                    return true;
+
+                case 4:
+                    data = new LevelData(5, 3);
+                    data.SetRow(2, Block.Num1, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.FixedPlus, Block.Empty, Block.FixedEqual, Block.Fixed3);
+                    data.SetRow(0, Block.Wall, Block.Wall, Block.Num2, Block.Wall, Block.Wall);
+                    return true;
+
+                case 5:
+                    data = new LevelData(3, 3);
+                    data.SetRow(2, Block.Num3, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.FixedEqual, Block.Num3);
+                    data.SetRow(0, Block.Num1, Block.Wall, Block.Wall);
+                    return true;
+
+                case 6:
+                    data = new LevelData(7, 3);
+                    data.SetRow(2, Block.Num1, Block.Wall, Block.Num4, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.FixedPlus, Block.Empty, Block.FixedEqual, Block.Num2,
+                        Block.FixedPlus, Block.Num3);
+                    data.SetRow(0, Block.Num9, Block.Wall, Block.Num1, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    return true;
+
+                case 7:
+                    data = new LevelData(6, 4);
+                    data.SetRow(3, Block.Num9, Block.Wall, Block.Num8, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(2, Block.Empty, Block.Empty, Block.Empty, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.FixedPlus, Block.Empty, Block.FixedEqual, Block.Num1, Block.Num8);
+                    data.SetRow(0, Block.Num9, Block.Wall, Block.Num1, Block.Wall, Block.Wall, Block.Wall);
+                    return true;
+
+                case 8:
+                    data = new LevelData(7, 3);
+                    data.SetRow(2, Block.Num6, Block.Wall, Block.Num5, Block.Wall, Block.Num6, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.FixedPlus, Block.Empty, Block.FixedEqual, Block.Empty, Block.FixedPlus, Block.Fixed3);
+                    data.SetRow(0, Block.Num4, Block.Wall, Block.Num1, Block.Wall, Block.Num4, Block.Wall, Block.Wall);
+                    return true;
+
+                case 9:
+                    data = new LevelData(7, 3);
+                    data.SetRow(2, Block.Num1, Block.Num3, Block.Wall, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.Empty, Block.FixedPlus, Block.Fixed7, Block.FixedEqual, Block.Num2, Block.Num1);
+                    data.SetRow(0, Block.Num4, Block.Num5, Block.Wall, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    return true;
+
+                case 10:
+                    data = new LevelData(7, 4);
+                    data.SetRow(3, Block.Num4, Block.Num1, Block.Wall, Block.Num0, Block.Wall, Block.Num3, Block.Num5);
+                    data.SetRow(2, Block.Empty, Block.Empty, Block.Empty, Block.Empty, Block.Wall, Block.Empty, Block.Empty);
+                    data.SetRow(1, Block.Empty, Block.Empty, Block.FixedPlus, Block.Empty, Block.FixedEqual, Block.Empty, Block.Empty);
+                    data.SetRow(0, Block.Wall, Block.Num3, Block.Wall, Block.Num9, Block.Wall, Block.Wall, Block.Num1);
+                    return true;
+
+                case 11:
+                    data = new LevelData(5, 3);
+                    data.SetRow(2, Block.Num0, Block.Wall, Block.Num3, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.FixedEqual, Block.Empty, Block.FixedEqual, Block.Fixed4);
+                    data.SetRow(0, Block.Num2, Block.Wall, Block.Num4, Block.Wall, Block.Wall);
+                    return true;
+
+                case 12:
+                    data = new LevelData(7, 4);
+                    data.SetRow(3, Block.Num3, Block.Num0, Block.Wall, Block.Wall, Block.Wall, Block.Num0, Block.Num1);
+                    data.SetRow(2, Block.Empty, Block.Empty, Block.Wall, Block.Wall, Block.Wall, Block.Empty, Block.Empty);
+                    data.SetRow(1, Block.Empty, Block.Empty, Block.FixedPlus, Block.Fixed9, Block.FixedEqual, Block.Empty, Block.Empty);
+                    data.SetRow(0, Block.Wall, Block.Num1, Block.Wall, Block.Wall, Block.Wall, Block.Num2, Block.Num3);
+                    return true;
+
+                case 13:
+                    data = new LevelData(9, 4);
+                    data.SetRow(3, Block.Num0, Block.Num1, Block.Wall, Block.Num2, Block.Wall, Block.Num1, Block.Wall, Block.Num9, Block.Num8);
+                    data.SetRow(2, Block.Empty, Block.Empty, Block.Empty, Block.Empty, Block.Wall, Block.Empty, Block.Empty, Block.Empty, Block.Empty);
+                    data.SetRow(1, Block.Empty, Block.Empty, Block.FixedPlus, Block.Empty, Block.FixedEqual, Block.Empty, Block.FixedPlus, Block.Empty, Block.Empty);
+                    data.SetRow(0, Block.Num1, Block.Num3, Block.Wall, Block.Num4, Block.Wall, Block.Num9, Block.Wall, Block.Wall, Block.Num0);
+                    return true;
+
+                case 14:
+                    data = new LevelData(5, 3);
+                    data.SetRow(2, Block.Wall, Block.Plus, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Fixed1, Block.Empty, Block.Fixed3, Block.FixedEqual, Block.Fixed4);
+                    data.SetRow(0, Block.Wall, Block.Minus, Block.Wall, Block.Wall, Block.Wall);
+                    return true;
+
+                case 15:
+                    data = new LevelData(7, 3);
+                    data.SetRow(2, Block.Num4, Block.Plus, Block.Num7, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.Empty, Block.Empty, Block.Fixed8, Block.FixedEqual, Block.Num4, Block.Num5);
+                    data.SetRow(0, Block.Num3, Block.Num5, Block.Wall, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    return true;
+
+                case 16:
+                    data = new LevelData(9, 4);
+                    data.SetRow(3, Block.Num3, Block.Num1, Block.Num9, Block.Wall, Block.Wall, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(2, Block.Empty, Block.Empty, Block.Empty, Block.Wall, Block.Num4, Block.Wall, Block.Num1, Block.Num0, Block.Num3);
+                    data.SetRow(1, Block.Empty, Block.Empty, Block.Empty, Block.Fixed1, Block.Empty, Block.FixedEqual, Block.Empty, Block.Empty, Block.Empty);
+                    data.SetRow(0, Block.Num2, Block.Empty, Block.Num2, Block.Wall, Block.Num2, Block.Wall, Block.Num4, Block.Num2, Block.Num6);
+                    return true;
+
+                case 17:
+                    data = new LevelData(8, 4);
+                    data.SetRow(3, Block.Num6, Block.Num9, Block.Wall, Block.Num7, Block.Num3, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(2, Block.Empty, Block.Empty, Block.Empty, Block.Empty, Block.Empty, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.Empty, Block.FixedMinus, Block.Empty, Block.Empty, Block.FixedEqual, Block.Fixed1, Block.Fixed9);
+                    data.SetRow(0, Block.Wall, Block.Num0, Block.Wall, Block.Num2, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    return true;
+
+                case 18:
+                    data = new LevelData(7, 4);
+                    data.SetRow(3, Block.Num1, Block.Wall, Block.Num3, Block.Wall, Block.Num1, Block.Wall, Block.Wall);
+                    data.SetRow(2, Block.Empty, Block.Empty, Block.Empty, Block.Empty, Block.Empty, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.FixedMinus, Block.Empty, Block.FixedPlus, Block.Empty, Block.FixedEqual, Block.Fixed0);
+                    data.SetRow(0, Block.Num1, Block.Wall, Block.Num4, Block.Wall, Block.Num3, Block.Wall, Block.Wall);
+                    return true;
+
+                case 19:
+                    data = new LevelData(9, 4);
+                    data.SetRow(3, Block.Wall, Block.Empty, Block.Num9, Block.Minus, Block.Num4, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(2, Block.Wall, Block.Empty, Block.Empty, Block.Empty, Block.Empty, Block.Wall, Block.Num9, Block.Plus, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.Empty, Block.Empty, Block.Empty, Block.Empty, Block.FixedEqual, Block.Empty, Block.Empty, Block.Fixed3);
+                    data.SetRow(0, Block.Wall, Block.Wall, Block.Num1, Block.Plus, Block.Num8, Block.Wall, Block.Num1, Block.Minus, Block.Wall);
+                    return true;
 
                 default:
                     data = null;
