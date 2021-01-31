@@ -30,7 +30,8 @@ namespace Game
             m_NextSceneName = null;
             m_ButtonNew.SetActive(isFirst);
             m_ButtonContinue.SetActive(!isFirst);
-            m_ButtonSelect.SetActive(!isFirst);
+            //m_ButtonSelect.SetActive(!isFirst);
+            m_ButtonSelect.SetActive(false);
 
             while (m_NextSceneName == null)
             {
