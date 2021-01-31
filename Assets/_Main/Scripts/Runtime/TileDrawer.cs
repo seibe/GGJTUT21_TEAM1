@@ -8,6 +8,9 @@ namespace Game
         [SerializeField] Tile[] numTiles;
         [SerializeField] Tile[] fixNumTiles;
         [SerializeField] Tile[] plusTiles;
+        [SerializeField] Tile[] minusTiles;
+        [SerializeField] Tile[] mulTiles;
+        [SerializeField] Tile[] divTiles;
         [SerializeField] Tile equalTile;
         [SerializeField] Tile emptyTile;
         [SerializeField] Tile wallTile;
@@ -51,6 +54,30 @@ namespace Game
                     else if (block == Block.FixedPlus)
                     {
                         tileMap.SetTile(new Vector3Int(k, i, 0), plusTiles[1]);
+                    }
+                    else if (block == Block.Minus)
+                    {
+                        tileMap.SetTile(new Vector3Int(k, i, 0), minusTiles[0]);
+                    }
+                    else if (block == Block.FixedMinus)
+                    {
+                        tileMap.SetTile(new Vector3Int(k, i, 0), minusTiles[1]);
+                    }
+                    else if (block == Block.Mul)
+                    {
+                        tileMap.SetTile(new Vector3Int(k, i, 0), mulTiles[0]);
+                    }
+                    else if (block == Block.FixedMul)
+                    {
+                        tileMap.SetTile(new Vector3Int(k, i, 0), mulTiles[1]);
+                    }
+                    else if (block == Block.Div)
+                    {
+                        tileMap.SetTile(new Vector3Int(k, i, 0), divTiles[0]);
+                    }
+                    else if (block == Block.FixedDiv)
+                    {
+                        tileMap.SetTile(new Vector3Int(k, i, 0), divTiles[1]);
                     }
                     else if (block == Block.FixedEqual)
                     {
