@@ -258,8 +258,7 @@ namespace Game
                 case 8:
                     data = new LevelData(7, 3);
                     data.SetRow(2, Block.Num6, Block.Wall, Block.Num5, Block.Wall, Block.Num6, Block.Wall, Block.Wall);
-                    data.SetRow(1, Block.Empty, Block.FixedPlus, Block.Empty, Block.FixedEqual, Block.FixedPlus,
-                        Block.Num3);
+                    data.SetRow(1, Block.Empty, Block.FixedPlus, Block.Empty, Block.FixedEqual, Block.Empty, Block.FixedPlus, Block.Fixed3);
                     data.SetRow(0, Block.Num4, Block.Wall, Block.Num1, Block.Wall, Block.Num4, Block.Wall, Block.Wall);
                     return true;
 
