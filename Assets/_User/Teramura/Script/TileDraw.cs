@@ -46,25 +46,31 @@ namespace User.Teramura
             levelData.SetAt(4, 2, Block.Wall);
             levelData.SetAt(5, 2, Block.Wall);
             levelData.SetAt(6, 2, Block.Wall);
+            UpdateTile();
 
             while (!Input.GetKeyDown("s")) yield return null;
             levelData.TryMoveDown(1, 2);
+            UpdateTile();
             yield return null;
 
             while (!Input.GetKeyDown("s")) yield return null;
             levelData.TryMoveRight(1, 1);
+            UpdateTile();
             yield return null;
 
             while (!Input.GetKeyDown("s")) yield return null;
             levelData.TryMoveLeft(2, 2);
+            UpdateTile();
             yield return null;
 
             while (!Input.GetKeyDown("s")) yield return null;
             levelData.TryMoveDown(1, 2);
+            UpdateTile();
             yield return null;
 
             while (!Input.GetKeyDown("s")) yield return null;
             levelData.TryMoveUp(0, 0);
+            UpdateTile();
             yield return null;
 
             while (!Input.GetKeyDown("s")) yield return null;
@@ -75,51 +81,46 @@ namespace User.Teramura
             kariUI.SetActive(false);
         }
 
-        // Update is called once per frame
-        void Update()
+        void UpdateTile()
         {
             for (int i = 0; i < levelData.Height; i++)
             {
                 for (int k = 0; k < levelData.Width; k++)
                 {
                     block = levelData.GetAt(k, i);
-                    if (Char.IsNumber(block.Value) == false)
+
+                    if (block.IsDigit)
                     {
-                        if (block.Value == '+')
-                        {
-                            if (block.IsFixed == false)
-                            {
-                                tileMap.SetTile(new Vector3Int(k, i, 0), plusTiles[0]);
-                            }
-                            else
-                            {
-                                tileMap.SetTile(new Vector3Int(k, i, 0), plusTiles[1]);
-                            }
-                        }
-                        else if(block.Value == '=')
-                        {
-                            tileMap.SetTile(new Vector3Int(k, i, 0), equalTile);
-                        }
-                        else if (block.Value == 'w')
-                        {
-                            tileMap.SetTile(new Vector3Int(k, i, 0), wallTile);
-                        }
-                        else
-                        {
-                            tileMap.SetTile(new Vector3Int(k, i, 0), emptyTile);
-                        }
-                    }
-                    else if(Char.IsNumber(block.Value) == true)
-                    {
-                        int number = (int)Char.GetNumericValue(block.Value);
-                        if(block.IsFixed == false)
-                        {
-                            tileMap.SetTile(new Vector3Int(k, i, 0), numTiles[number]);
-                        }
-                        else
+                        var number = block.Value - '0';
+
+                        if (block.IsFixed)
                         {
                             tileMap.SetTile(new Vector3Int(k, i, 0), fixNumTiles[number]);
                         }
+                        else
+                        {
+                            tileMap.SetTile(new Vector3Int(k, i, 0), numTiles[number]);
+                        }
+                    }
+                    else if (block == Block.Plus)
+                    {
+                        tileMap.SetTile(new Vector3Int(k, i, 0), plusTiles[0]);
+                    }
+                    else if (block == Block.FixedPlus)
+                    {
+                        tileMap.SetTile(new Vector3Int(k, i, 0), plusTiles[1]);
+                    }
+                    else if (block == Block.FixedEqual)
+                    {
+                        tileMap.SetTile(new Vector3Int(k, i, 0), equalTile);
+                    }
+                    else if (block == Block.Wall)
+                    {
+                        tileMap.SetTile(new Vector3Int(k, i, 0), wallTile);
+                    }
+                    else
+                    {
+                        tileMap.SetTile(new Vector3Int(k, i, 0), emptyTile);
                     }
                 }
             }
