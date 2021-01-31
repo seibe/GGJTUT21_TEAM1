@@ -48,7 +48,9 @@ namespace User.Teramura
             levelData.SetAt(6, 2, Block.Wall);
             UpdateTile();
 
-            while (!Input.GetKeyDown("s")) yield return null;
+            yield return null;
+
+            /*while (!Input.GetKeyDown("s")) yield return null;
             levelData.TryMoveDown(1, 2);
             UpdateTile();
             yield return null;
@@ -78,7 +80,7 @@ namespace User.Teramura
             yield return null;
 
             while (!Input.GetKeyDown("s")) yield return null;
-            kariUI.SetActive(false);
+            kariUI.SetActive(false);*/
         }
 
         void UpdateTile()
