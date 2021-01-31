@@ -16,7 +16,7 @@ namespace User.Teramura
         [SerializeField] Tile equalTile;
         [SerializeField] Tile emptyTile;
         Block block;
-        LevelData levelData = new LevelData(10,10);
+        LevelData levelData;
         Tilemap tileMap;
 
         // Start is called before the first frame update
@@ -32,7 +32,7 @@ namespace User.Teramura
             {
                 for (int k = 0; k < levelData.Width; k++)
                 {
-                    block = levelData.GetAt(i, k);
+                    block = levelData.GetAt(k, i);
                     if (Char.IsNumber(block.Value) == false)
                     {
                         if (block.Value == '+')
@@ -45,11 +45,14 @@ namespace User.Teramura
                             {
                                 tileMap.SetTile(new Vector3Int(k, i, 0), plusTiles[1]);
                             }
-                            tileMap.SetTile(new Vector3Int(k, i, 0), emptyTile);
                         }
                         else if(block.Value == '=')
                         {
                             tileMap.SetTile(new Vector3Int(k, i, 0), equalTile);
+                        }
+                        else
+                        {
+                            tileMap.SetTile(new Vector3Int(k, i, 0), emptyTile);
                         }
                     }
                     else if(Char.IsNumber(block.Value) == true)
