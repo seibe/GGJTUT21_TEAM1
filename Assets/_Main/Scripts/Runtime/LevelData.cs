@@ -280,7 +280,7 @@ namespace Game
                 case 11:
                     data = new LevelData(5, 3);
                     data.SetRow(2, Block.Num0, Block.Wall, Block.Num3, Block.Wall, Block.Wall);
-                    data.SetRow(1, Block.Empty, Block.FixedEqual, Block.Empty, Block.FixedEqual, Block.Fixed4);
+                    data.SetRow(1, Block.Empty, Block.FixedPlus, Block.Empty, Block.FixedEqual, Block.Fixed4);
                     data.SetRow(0, Block.Num2, Block.Wall, Block.Num4, Block.Wall, Block.Wall);
                     return true;
 
