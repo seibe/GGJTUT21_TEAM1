@@ -1,8 +1,6 @@
-#if UNITY_EDITOR
 using Game;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -128,4 +126,3 @@ namespace User.Teramura
         }
     }
 }
-#endif //UNITY_EDITOR
