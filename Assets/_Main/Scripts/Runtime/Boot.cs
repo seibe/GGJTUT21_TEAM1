@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Analytics;
+using UnityEngine.SceneManagement;
 
 namespace Game
 {
@@ -29,6 +30,45 @@ namespace Game
             PlayerLoopHelper.Initialize(ref playerLoop);
 
             Application.targetFrameRate = 60;
+        }
+
+        private async UniTaskVoid Start()
+        {
+            const string k_NextLevelIndex = "NEXT_LEVEL_INDEX";
+            var ct = this.GetCancellationTokenOnDestroy();
+
+            while (true)
+            {
+                var levelIndex = PlayerPrefs.GetInt(k_NextLevelIndex, 0);
+
+                await SceneManager.LoadSceneAsync("Title", LoadSceneMode.Additive).WithCancellation(ct);
+
+                var nextSceneName = await Resolver.Get<Title>().SetupAndWait(levelIndex == 0).WithCancellation(ct);
+
+                _ = SceneManager.UnloadSceneAsync("Title");
+
+                if (nextSceneName == "LevelSelect")
+                {
+                    // todo: ステージ選択画面
+                }
+
+                while (LevelData.TryGetLevel(levelIndex, out var levelData))
+                {
+                    await SceneManager.LoadSceneAsync("Level", LoadSceneMode.Additive).WithCancellation(ct);
+
+                    Resolver.Get<TileDrawer>().UpdateTile(levelData);
+
+                    await UniTask.WaitUntil(() => levelData.IsSuccess(), cancellationToken: ct);
+
+                    // todo: クリア画面
+
+                    PlayerPrefs.SetInt(k_NextLevelIndex, ++levelIndex);
+                }
+
+                _ = SceneManager.UnloadSceneAsync("Level");
+
+                PlayerPrefs.DeleteKey(k_NextLevelIndex);
+            }
         }
     }
 }
