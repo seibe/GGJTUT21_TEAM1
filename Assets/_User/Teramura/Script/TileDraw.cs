@@ -15,12 +15,14 @@ namespace User.Teramura
         [SerializeField] Tile[] plusTiles;
         [SerializeField] Tile equalTile;
         [SerializeField] Tile emptyTile;
+        [SerializeField] Tile wallTile;
+        [SerializeField] GameObject kariUI;
         Block block;
         LevelData levelData;
         Tilemap tileMap;
 
         // Start is called before the first frame update
-        void Start()
+        IEnumerator Start()
         {
             tileMap = GetComponent<Tilemap>();
 
@@ -46,6 +48,33 @@ namespace User.Teramura
             levelData.SetAt(4, 2, Block.Wall);
             levelData.SetAt(5, 2, Block.Wall);
             levelData.SetAt(6, 2, Block.Wall);
+
+            while (!Input.GetKeyDown("s")) yield return null;
+            levelData.TryMoveDown(1, 2);
+            yield return null;
+
+            while (!Input.GetKeyDown("s")) yield return null;
+            levelData.TryMoveRight(1, 1);
+            yield return null;
+
+            while (!Input.GetKeyDown("s")) yield return null;
+            levelData.TryMoveLeft(2, 2);
+            yield return null;
+
+            while (!Input.GetKeyDown("s")) yield return null;
+            levelData.TryMoveDown(1, 2);
+            yield return null;
+
+            while (!Input.GetKeyDown("s")) yield return null;
+            levelData.TryMoveUp(0, 0);
+            yield return null;
+
+            while (!Input.GetKeyDown("s")) yield return null;
+            kariUI.SetActive(true);
+            yield return null;
+
+            while (!Input.GetKeyDown("s")) yield return null;
+            kariUI.SetActive(false);
         }
 
         // Update is called once per frame
@@ -72,6 +101,10 @@ namespace User.Teramura
                         else if(block.Value == '=')
                         {
                             tileMap.SetTile(new Vector3Int(k, i, 0), equalTile);
+                        }
+                        else if (block.Value == 'w')
+                        {
+                            tileMap.SetTile(new Vector3Int(k, i, 0), wallTile);
                         }
                         else
                         {
