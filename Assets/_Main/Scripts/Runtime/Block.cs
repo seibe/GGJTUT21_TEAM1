@@ -73,5 +73,8 @@ namespace Game
 
         public readonly bool IsExp
             => !Equals(Empty) && !Equals(Wall);
+
+        public readonly bool IsDigit
+            => char.IsDigit(Value);
     }
 }
