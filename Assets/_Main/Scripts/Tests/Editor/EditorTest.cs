@@ -23,17 +23,7 @@ namespace Game.Editor.Tests
         [Test, Category("Level")]
         public void Level001()
         {
-            var data = new LevelData(3, 3);
-            data.SetAt(0, 0, Block.Num1);
-            data.SetAt(1, 0, Block.Wall);
-            data.SetAt(2, 0, Block.Wall);
-            data.SetAt(0, 1, Block.Empty);
-            data.SetAt(1, 1, Block.FixedEqual);
-            data.SetAt(2, 1, Block.Fixed1);
-            data.SetAt(0, 2, Block.Wall);
-            data.SetAt(1, 2, Block.Wall);
-            data.SetAt(2, 2, Block.Wall);
-
+            Assert.IsTrue(LevelData.TryGetLevel(0, out var data));
             Assert.IsTrue(data.IsValid());
             Assert.IsFalse(data.IsSuccess());
             Assert.IsFalse(data.TryMoveDown(0, 2));
@@ -44,23 +34,7 @@ namespace Game.Editor.Tests
         [Test, Category("Level")]
         public void Level002()
         {
-            var data = new LevelData(5, 3);
-            data.SetAt(0, 0, Block.Wall);
-            data.SetAt(1, 0, Block.Num3);
-            data.SetAt(2, 0, Block.Wall);
-            data.SetAt(3, 0, Block.Wall);
-            data.SetAt(4, 0, Block.Wall);
-            data.SetAt(0, 1, Block.Fixed2);
-            data.SetAt(1, 1, Block.Empty);
-            data.SetAt(2, 1, Block.FixedEqual);
-            data.SetAt(3, 1, Block.Fixed2);
-            data.SetAt(4, 1, Block.Fixed3);
-            data.SetAt(0, 2, Block.Wall);
-            data.SetAt(1, 2, Block.Wall);
-            data.SetAt(2, 2, Block.Wall);
-            data.SetAt(3, 2, Block.Wall);
-            data.SetAt(4, 2, Block.Wall);
-
+            Assert.IsTrue(LevelData.TryGetLevel(1, out var data));
             Assert.IsTrue(data.IsValid());
             Assert.IsFalse(data.IsSuccess());
             Assert.IsFalse(data.TryMoveRight(0, 1));

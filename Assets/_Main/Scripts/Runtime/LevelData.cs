@@ -1,4 +1,5 @@
 #nullable enable
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine.Assertions;
 
 namespace Game
@@ -126,6 +127,16 @@ namespace Game
             m_RawData[x + Width * y] = value;
         }
 
+        public void SetRow(in int y, params Block[] row)
+        {
+            Assert.AreEqual(Width, row.Length);
+
+            for (var x = 0; x < row.Length; x++)
+            {
+                SetAt(x, y, row[x]);
+            }
+        }
+
         /// <summary>
         /// 下に移動する
         /// </summary>
@@ -176,6 +187,32 @@ namespace Game
             SetAt(x2, y2, from);
             SetAt(x, y, Block.Empty);
             return true;
+        }
+
+        public static bool TryGetLevel(in int index, [NotNullWhen(true)] out LevelData? data)
+        {
+            switch (index + 1)
+            {
+                case 1:
+                    data = new LevelData(3, 3);
+                    data.SetRow(2, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Empty, Block.FixedEqual, Block.Fixed1);
+                    data.SetRow(0, Block.Num1, Block.Wall, Block.Wall);
+                    return true;
+
+                case 2:
+                    data = new LevelData(5, 3);
+                    data.SetRow(2, Block.Wall, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
+                    data.SetRow(1, Block.Fixed2, Block.Empty, Block.FixedEqual, Block.Fixed2, Block.Fixed3);
+                    data.SetRow(0, Block.Wall, Block.Num3, Block.Wall, Block.Wall, Block.Wall);
+                    return true;
+
+                // ここに書き加えていく！
+
+                default:
+                    data = null;
+                    return false;
+            }
         }
     }
 }
