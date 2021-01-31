@@ -318,7 +318,7 @@ namespace Game
                     data = new LevelData(9, 4);
                     data.SetRow(3, Block.Num3, Block.Num1, Block.Num9, Block.Wall, Block.Wall, Block.Wall, Block.Wall, Block.Wall, Block.Wall);
                     data.SetRow(2, Block.Empty, Block.Empty, Block.Empty, Block.Wall, Block.Num4, Block.Wall, Block.Num1, Block.Num0, Block.Num3);
-                    data.SetRow(1, Block.Empty, Block.Empty, Block.Empty, Block.Fixed1, Block.Empty, Block.FixedEqual, Block.Empty, Block.Empty, Block.Empty);
+                    data.SetRow(1, Block.Empty, Block.Empty, Block.Empty, Block.FixedPlus, Block.Empty, Block.FixedEqual, Block.Empty, Block.Empty, Block.Empty);
                     data.SetRow(0, Block.Num2, Block.Empty, Block.Num2, Block.Wall, Block.Num2, Block.Wall, Block.Num4, Block.Num2, Block.Num6);
                     return true;
 
