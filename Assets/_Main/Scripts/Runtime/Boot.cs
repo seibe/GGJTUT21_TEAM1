@@ -61,11 +61,12 @@ namespace Game
                     await UniTask.WaitUntil(() => levelData.IsSuccess(), cancellationToken: ct);
 
                     // todo: クリア画面
+                    await UniTask.Delay(500, cancellationToken: ct);
 
                     PlayerPrefs.SetInt(k_NextLevelIndex, ++levelIndex);
-                }
 
-                _ = SceneManager.UnloadSceneAsync("Level");
+                    _ = SceneManager.UnloadSceneAsync("Level");
+                }
 
                 PlayerPrefs.DeleteKey(k_NextLevelIndex);
             }
