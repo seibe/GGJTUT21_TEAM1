@@ -1,7 +1,11 @@
 {
     "name": "Game.Runtime",
     "rootNamespace": "Game",
-    "references": [],
+    "references": [
+        "GUID:60e04b0c117623840a6c0dda8c34a86a",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:029c1c1b674aaae47a6841a0b89ad80e"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
