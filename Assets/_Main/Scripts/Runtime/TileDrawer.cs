@@ -41,23 +41,35 @@ namespace Game
 
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
-                    m_LevelData.TryMoveUp(pos.x, pos.y);
-                    UpdateTile(m_LevelData);
+                    if (m_LevelData.TryMoveUp(pos.x, pos.y))
+                    {
+                        UpdateTile(m_LevelData);
+                        m_SelectedBlock = new Vector2Int(pos.x, pos.y + 1);
+                    }
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
-                    m_LevelData.TryMoveRight(pos.x, pos.y);
-                    UpdateTile(m_LevelData);
+                    if (m_LevelData.TryMoveRight(pos.x, pos.y))
+                    {
+                        UpdateTile(m_LevelData);
+                        m_SelectedBlock = new Vector2Int(pos.x + 1, pos.y);
+                    }
                 }
                 else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
-                    m_LevelData.TryMoveDown(pos.x, pos.y);
-                    UpdateTile(m_LevelData);
+                    if (m_LevelData.TryMoveDown(pos.x, pos.y))
+                    {
+                        UpdateTile(m_LevelData);
+                        m_SelectedBlock = new Vector2Int(pos.x, pos.y - 1);
+                    }
                 }
                 else if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
-                    m_LevelData.TryMoveLeft(pos.x, pos.y);
-                    UpdateTile(m_LevelData);
+                    if (m_LevelData.TryMoveLeft(pos.x, pos.y))
+                    {
+                        UpdateTile(m_LevelData);
+                        m_SelectedBlock = new Vector2Int(pos.x - 1, pos.y);
+                    }
                 }
             }
 
