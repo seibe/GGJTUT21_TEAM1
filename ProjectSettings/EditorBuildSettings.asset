@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Main/Scenes/TitleScene.unity
+    guid: 325f1dce169f14208a55d660aad45f53
+  - enabled: 1
+    path: Assets/_Main/Scenes/LevelSelectScene1-18.unity
+    guid: b0dc595492cfc4abc99874edc9930171
+  - enabled: 1
+    path: Assets/_Main/Scenes/LevelSelectScene19-36.unity
+    guid: 8367edfaff77148f0b55331ca251e34d
+  - enabled: 1
+    path: Assets/_Main/Scenes/LevelScene.unity
+    guid: 273f5700938a741d2aa8133ebbb41236
+  - enabled: 1
+    path: Assets/_User/Aguro/Scenes/MenuOverlay.unity
+    guid: 591e6926ab9a241d5afbe148211e4871
   m_configObjects: {}
